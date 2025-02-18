@@ -141,6 +141,8 @@ class ChainType(click.ParamType):
         "11155111": "sepolia",
         "mainnet": "mainnet",
         "1": "mainnet",
+        "local": "local",
+        "31337": "local"
     }
 
     def convert(self, value, param, ctx):
@@ -170,12 +172,14 @@ class SymbioticCLI:
         "holesky": 17000,
         "sepolia": 11155111,
         "mainnet": 1,
+        "local": 31337,
     }
 
     PROVIDERS = {
         "holesky": "https://ethereum-holesky-rpc.publicnode.com",
         "sepolia": "https://ethereum-sepolia-rpc.publicnode.com",
         "mainnet": "https://ethereum-rpc.publicnode.com",
+        "local": "http://localhost:8545",
     }
 
     ABIS_PATH = "./abi"
@@ -206,6 +210,14 @@ class SymbioticCLI:
 
     ADDRESSES = {
         "holesky": {
+            "op_registry": "0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548",
+            "net_registry": "0x7d03b7343BF8d5cEC7C0C27ecE084a20113D15C9",
+            "op_vault_opt_in": "0x95CC0a052ae33941877c9619835A233D21D57351",
+            "op_net_opt_in": "0x58973d16FFA900D11fC22e5e2B6840d9f7e13401",
+            "middleware_service": "0x62a1ddfD86b4c1636759d9286D3A0EC722D086e3",
+            "vault_factory": "0x407A039D94948484D356eFB765b3c74382A050B4",
+        },
+        "local": {
             "op_registry": "0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548",
             "net_registry": "0x7d03b7343BF8d5cEC7C0C27ecE084a20113D15C9",
             "op_vault_opt_in": "0x95CC0a052ae33941877c9619835A233D21D57351",
